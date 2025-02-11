@@ -5,7 +5,7 @@ In addition to the **Instantaneous Discharge Rate (IDR)**, its **smoothed** form
 
 A widely adopted approach for smoothing the firing rate is the application of a **400 ms Hanning window**, as first proposed by [De Luca et al. (1982)](http://dx.doi.org/10.1113/jphysiol.1982.sp014293). However, I could not find an "official" MATLAB implementation of this method online, so I decided to implement it myself.
 
-This script was used in my [**MSc Thesis at Politecnico di Torino**](https://webthesis.biblio.polito.it/33655/), where I analyzed MU behavior and functional performance in patients with **brachial plexus injuries** following **nerve transfer surgery**.
+This script was used in my [**MSc Thesis at Politecnico di Torino**](https://webthesis.biblio.polito.it/33655/), where I analyzed MU behavior and functional performance in patients with **brachial plexus injury** following **nerve transfer surgery**.
 
 
 ## **📌 Usage**

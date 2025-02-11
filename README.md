@@ -1,8 +1,23 @@
-# Smooth-MU-Firing-Rate
+# Smooth Motor Unit (MU) Firing Rate
 
-After HD-sEMG decomposition, various analysis can be done. Among them, Motor Unit (MU) firing rate is usually inspected.
-A part from computing the so called Instantaneous Discharge Rate (IDR), it is often computed and investigated its smoothed form. As classically done in many studies, I implemented the smoothing with a Hanning window of 400 ms as proposed firstly by [de Luca](http://dx.doi.org/10.1113/jphysiol.1982.sp014293). I decided to do that since I didn't find any "official" version on the internet.
+After HD-sEMG decomposition, various analyses can be performed. One of the most commonly studied features is the **firing rate of Motor Units (MUs)**.  
+In addition to the **Instantaneous Discharge Rate (IDR)**, its **smoothed** form is often used.  
 
-This script was used in my [**MSc Thesis at Politecnico di Torino**](https://webthesis.biblio.polito.it/33655/), which focused on analyzing MU behavior and functional performance in patients with brachial plexus injuries following nerve transfer surgery.
+A widely adopted approach for smoothing the firing rate is the application of a **400 ms Hanning window**, as first proposed by [De Luca et al. (1982)](http://dx.doi.org/10.1113/jphysiol.1982.sp014293). However, I could not find an "official" MATLAB implementation of this method online, so I decided to implement it myself.
 
-Just a quick note: In this function MUPulses has a structure as the output from [DEMUSE®](https://demuse.feri.um.si/). It is a cell 1xN, where N is the number of identified MUs. Each cell contain a vector with variable length, where each element represent the sample when the MU spiked.
+This script was used in my [**MSc Thesis at Politecnico di Torino**](https://webthesis.biblio.polito.it/33655/), where I analyzed MU behavior and functional performance in patients with **brachial plexus injuries** following **nerve transfer surgery**.
+
+
+## **📌 Usage**
+### **Input Data**
+Input Data:
+- `MUPulses`: 1 × N cell array, where `N` is the number of identified MUs; each cell contains a variable-length vector, where each element represents the sample index at which the MU fired. This function expects `**MUPulses**` to follow the same structure as the output from [DEMUSE®](https://demuse.feri.um.si/).
+- `fsamp`: Sampling frequency of the HD-sEMG signals (Hz).
+- `sigLen` *(optional)*: Total length of the signal in samples. Providing `sigLen` is recommended for easier batch processing of multiple files.
+
+To compute the smoothed firing rate:
+```matlab
+sIDR = smoothFiringRateMU(MUPulses, fsamp, sigLen);
+```
+
+where `sIDR` is numMUs × sigLen matrix, where each row contains the smoothed instantaneous discharge rate (pps) of the corresponding MU over time.

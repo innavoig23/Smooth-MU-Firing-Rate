@@ -1,4 +1,4 @@
-# Smooth Motor Unit (MU) Firing Rate
+![exMU1](https://github.com/user-attachments/assets/f76d4f23-95f9-4814-85b4-5f08160947c2)# Smooth Motor Unit (MU) Firing Rate
 
 After HD-sEMG decomposition, various analyses can be performed. One of the most commonly studied features is the **firing rate of Motor Units (MUs)**.  
 In addition to the **Instantaneous Discharge Rate (IDR)**, its **smoothed** form is often used.  
@@ -6,7 +6,6 @@ In addition to the **Instantaneous Discharge Rate (IDR)**, its **smoothed** form
 A widely adopted approach for smoothing the firing rate is the application of a **400 ms Hanning window**, as first proposed by [De Luca et al. (1982)](http://dx.doi.org/10.1113/jphysiol.1982.sp014293). However, I could not find an "official" MATLAB implementation of this method online, so I decided to implement it myself.
 
 This script was used in my [**MSc Thesis at Politecnico di Torino**](https://webthesis.biblio.polito.it/33655/), where I analyzed MU behavior and functional performance in patients with **brachial plexus injury** following **nerve transfer surgery**.
-
 
 ## **📌 Usage**
 Input Data:
@@ -20,3 +19,12 @@ sIDR = smoothFiringRateMU(MUPulses, fsamp, sigLen);
 ```
 
 where `sIDR` is numMUs × sigLen matrix, where each row contains the smoothed instantaneous discharge rate (pps) of the corresponding MU over time.
+
+## **📌 Example Plots**
+Below are two example plots showing the smoothed firing rate of MUs using a 400 ms Hanning window.
+
+### **Example 1:**
+![Example 1](/Images/exMU1.png)
+
+### **Example 2**
+![Example 2](/Images/exMU2.png)

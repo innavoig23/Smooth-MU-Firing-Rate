@@ -1,4 +1,4 @@
-![exMU1](https://github.com/user-attachments/assets/f76d4f23-95f9-4814-85b4-5f08160947c2)# Smooth Motor Unit (MU) Firing Rate
+# Smooth Motor Unit (MU) Firing Rate
 
 After HD-sEMG decomposition, various analyses can be performed. One of the most commonly studied features is the **firing rate of Motor Units (MUs)**.  
 In addition to the **Instantaneous Discharge Rate (IDR)**, its **smoothed** form is often used.  

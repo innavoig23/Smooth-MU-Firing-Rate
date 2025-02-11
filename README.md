@@ -9,7 +9,6 @@ This script was used in my [**MSc Thesis at Politecnico di Torino**](https://web
 
 
 ## **📌 Usage**
-### **Input Data**
 Input Data:
 - `MUPulses`: 1 × N cell array, where `N` is the number of identified MUs; each cell contains a variable-length vector, where each element represents the sample index at which the MU fired. This function expects `**MUPulses**` to follow the same structure as the output from [DEMUSE®](https://demuse.feri.um.si/).
 - `fsamp`: Sampling frequency of the HD-sEMG signals (Hz).

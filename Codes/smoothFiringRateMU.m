@@ -49,6 +49,7 @@ sIDR = zeros(numMUs, sigLen);
 for mu = 1:numMUs
 
     % Check if the MU has at least two spikes to compute IDR
+    % Note: This check is redundant, as if MUs firing pattern is usually checked right after decomposition. 
     if numel(MUPulses{mu}) < 2
         sIDR(mu, :) = NaN; % Assign NaN to indicate insufficient data
         continue;

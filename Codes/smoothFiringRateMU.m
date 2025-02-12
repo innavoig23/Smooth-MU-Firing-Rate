@@ -32,11 +32,11 @@ numMUs = numel(MUPulses); % Number of motor units
 
 % Define Hanning window for smoothing (400 ms window)
 winLen = 0.4; % Window length in seconds
-L = round(winLen * fsamp); % Convert window length to samples
-hanningWin = hann(L); % Create Hanning window
+winLen = round(winLen * fsamp); % Window length in samples
+hanningWin = hann(winLen); % Create Hanning window
 hanningWin = hanningWin / sum(hanningWin); % Normalize energy to maintain correct scaling
 
-% If `sigLen` is not provided, estimate the total signal length
+% If `sigLen` is not provided, set it to the last firing instant instant among MUs
 if nargin < 3
     sigLen = max(cellfun(@max, MUPulses)) + 1; % Ensure signal length includes last MU spike
 end

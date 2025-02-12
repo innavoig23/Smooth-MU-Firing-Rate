@@ -34,6 +34,7 @@ for mu = 1:numMUs
     ylabel('Force (% MVC)', 'FontWeight', 'bold')
     
     xlim([timeSmoothed(1), timeSmoothed(end)])
+    xlabel('Time (s)', 'FontWeight', 'bold')
 
     set(gca, 'FontSize', 24);
     title(sprintf("MU %d - Firing Rate", mu), 'FontWeight', 'bold', 'FontSize',26)
@@ -64,6 +65,7 @@ for mu = 1:numMUs
     ylabel('Force (% MVC)', 'FontWeight', 'bold')
     
     xlim([timeSmoothed(1), timeSmoothed(end)])
+    xlabel('Time (s)', 'FontWeight', 'bold')
 
     set(gca, 'FontSize', 24);
     title(sprintf("MU %d", mu), 'FontWeight', 'bold', 'FontSize',26)

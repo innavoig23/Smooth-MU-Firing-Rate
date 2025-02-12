@@ -32,6 +32,7 @@ for mu = 1:numMUs
     yyaxis right
     plot(timeSmoothed, forceSig*100, 'LineWidth', 2, 'Color', matRed, 'LineStyle', '-'); % Assicura linea continua
     ylabel('Force (% MVC)', 'FontWeight', 'bold')
+    ylim([0 25])
     
     xlim([timeSmoothed(1), timeSmoothed(end)])
     xlabel('Time (s)', 'FontWeight', 'bold')

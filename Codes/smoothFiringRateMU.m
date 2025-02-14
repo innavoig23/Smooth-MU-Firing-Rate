@@ -31,14 +31,14 @@ function sIDR = smoothFiringRateMU(MUPulses, fsamp, sigLen)
 numMUs = numel(MUPulses); % Number of motor units
 
 % Define Hanning window for smoothing (400 ms window)
-winLen = 0.4; % Window length in seconds
-winLen = round(winLen * fsamp); % Window length in samples
-hanningWin = hann(winLen); % Create Hanning window
-hanningWin = hanningWin / sum(hanningWin); % Normalize energy to maintain correct scaling
+winLen = 0.4; % window length in seconds
+winLen = round(winLen * fsamp); % window length in samples
+hanningWin = hanning(winLen); % create Hanning window
+hanningWin = hanningWin / sum(hanningWin); % normalize energy to maintain correct scaling
 
 % If `sigLen` is not provided, set it to the last firing instant instant among MUs
 if nargin < 3
-    sigLen = max(cellfun(@max, MUPulses)) + 1; % Ensure signal length includes last MU spike
+    sigLen = max(cellfun(@max, MUPulses)) + 1; % ensure signal length includes last MU spike
 end
 
 % Preallocate output
@@ -49,17 +49,17 @@ sIDR = zeros(numMUs, sigLen);
 for mu = 1:numMUs
 
     % Check if the MU has at least two spikes to compute IDR
-    % Note: This check is redundant, as if MUs firing pattern is usually checked right after decomposition. 
+    % Note: This check is redundant, as MUs firing pattern is usually checked right after decomposition. 
     if numel(MUPulses{mu}) < 2
-        sIDR(mu, :) = NaN(1, sigLen); % Assign NaN to indicate insufficient data
+        sIDR(mu, :) = NaN(1, sigLen); % assign NaN to indicate insufficient data
         continue;
     end
 
     % Convert spike times into a binary pulse train
     pulses = zeros(1, sigLen);
-    pulses(MUPulses{mu}) = 1; % Mark spike occurrences
+    pulses(MUPulses{mu}) = 1;
 
     % Apply convolution with Hanning window to smooth IDR
-    sIDR(mu, :) = conv(pulses, hanningWin, 'same') * fsamp; % Compute and scale to pps
+    sIDR(mu, :) = conv(pulses, hanningWin, 'same') * fsamp; % compute and scale to pps
 
 end

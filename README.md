@@ -23,8 +23,12 @@ where `sIDR` is numMUs × sigLen matrix, where each row contains the smoothed in
 ## **📌 Example Plots**
 Below are two example plots showing the smoothed firing rate of MUs using a 400 ms Hanning window.
 
-### **Example 1:**
-![Example 1](/Images/exMU1.png)
+<div align="center">
+    <h3></h3>
+    <img src="Images/exMU1.png" alt="Example 1" width="700"/>
+</div>
 
-### **Example 2**
-![Example 2](/Images/exMU2.png)
+<div align="center">
+    <h3></h3>
+    <img src="Images/exMU2.png" alt="Example 2" width="700"/>
+</div>
